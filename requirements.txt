@@ -1,0 +1,19 @@
+plaster_pastedeploy
+pyramid
+pyramid_jinja2
+pyramid_debugtoolbar
+pyramid_tm
+pyramid_jwt
+psycopg2-binary
+waitress
+bcrypt
+alembic
+pyramid_retry
+SQLAlchemy
+transaction
+zope.sqlalchemy
+marshmallow
+marshmallow_sqlalchemy
+WebTest >= 1.3.1
+pytest >= 3.7.4
+pytest-cov

@@ -1,0 +1,32 @@
+version: '3.2'
+
+services:
+  database:
+    image: postgres
+    container_name: become-legend-database
+    environment:
+      - POSTGRES_PASSWORD=abc
+      - POSTGRES_USER=postgres
+      - POSTGRES_DB=become-legend
+    ports:
+      - '5432:5432'
+  web:
+    image: become-legend:latest
+    build:
+      context: .
+    container_name: become-legend
+    volumes:
+      - .:/become-legend
+    command: bash -c "tail -f /dev/null"
+    ports:
+      - '6543:6543'
+      - '8888:8888'
+  pgadmin:
+    image: "dpage/pgadmin4"
+    container_name: become-legend-pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: "admin"
+      PGADMIN_DEFAULT_PASSWORD: "admin"
+      PGADMIN_CONFIG_CONSOLE_LOG_LEVEL: 40
+    ports:
+      - "5050:80"
